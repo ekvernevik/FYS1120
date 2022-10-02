@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[paper=letterpaper,margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{newtxtext, newtxmath}
+\usepackage{enumitem}
+\usepackage{titling}
+\usepackage[colorlinks=true]{hyperref}
+
+% Enter the specific assignment number and topic of that assignment below, and replace "Your Name" with your actual name.
+\title{FYS1120: Assignment, week 4}
+\author{Emil Kvernevik}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[leftmargin=\labelsep]
+\item In cylindrical coordinates, \emph{Laplace's equation} is written as:
+    \begin{equation*}
+    \displaystyle \frac{1}{r}\,\frac{\partial}{\partial r}\left(r\,\frac{\partial V}{\partial r}\right)+\frac{1}{r^{\,2}}\frac{\partial^{\,2} V}{\partial\theta^{\,2}}+\frac{\partial^{\,2} V}{\partial z^{\,2}}=0.
+    \end{equation*}
+    
+    In this task we will look at an infinitely long cylindrical surface, aligned with the \emph{z}-axis, as a model for a cable or the axon in a nerve cell.
+    
+    \begin{enumerate}
+    \item \textbf{Explain why the potential V is only dependent on $r$, and not $\theta$ or $z$.}
+
+    We know that the system has cylindrical symmetry. This means that the electric field should not have a longitudinal component, because if we for instance flip the cable $180^{\circ}$ around an axis normal to the cable, the cable remains unchanged, and the electric field remains unchanged as well. This can only be the case if the field parallel to the wire is zero. 
+    \\
+    \\
+    The electric field should not have a tangential component either, because if we spin the cable $180^{\circ}$ around, the cable and electric field still remain unchanged. The tangential component will spin onto it's negative, the only way for it to stay the same, is if it also is zero.
+    \\
+    \\
+    Remember the relation between the electric field and the potential,
+    \begin{equation*}
+        \mathbf{E}(\mathbf{r})=-\nabla \mathbf{V} (\mathbf{r}).
+    \end{equation*}
+    Now, if the electric field for a Gaussian surface with cylindrical symmetry is purely radial, and the potential is the partial derivative of the electric field - we see that there is no dependence on tangential or longitudinal components $\theta$ or $z$.
+    \\
+    \\
+    Note also, that for a charge \emph{q} at the origin, the electric field is given by Coulomb's law as:
+    \begin{equation*}
+        \mathbf{E}(\mathbf{r})=\frac{kq}{r^2}\hat{\mathbf{r}},
+    \end{equation*}
+    where $\hat{\mathbf{r}}=\frac{\mathbf{r}}{|\mathbf{r}|}$ is the unit vector from the origin to point $\mathbf{r}$. The corresponding electric potential, is:
+    \begin{equation*}
+        V(\mathbf{r})= \frac{kq}{r}
+    \end{equation*}
+    and only depends on the distance \emph{r} from the origin.
+
+    \item \textbf{Assume the potential is $V_0$ on the inside of the cylinder shell, by $\mathbf{r} = \mathbf{a}$ and $V_1$ = 0 on the outside of the cylinder shell, by $\mathbf{r}$ = $\mathbf{b}$. There are no free charges in the region between $\mathbf{r} = \mathbf{a}$ and $\mathbf{r}$ = $\mathbf{b}$. Find the electric potential as a function of $\mathbf{r}$ by solving Laplace's equation.}
+
+    From Laplace's equation in cylindrical coordinates, we have that:
+    \begin{equation*}
+        \nabla^{2}V =\frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial V}{\partial r}) = 0,
+    \end{equation*}
+    since there is no $\theta$ or $z$ dependence. Additionally, since $\frac{1}{r}$ $\neq 0$,
+    we can express the equation as:
+    \begin{equation*}
+        \frac{\partial}{\partial r}(r\frac{\partial V}{\partial r}) = 0 \Leftrightarrow (r\frac{\partial V}{\partial r}) = C,
+    \end{equation*}
+    where C is a constant. If we divide both sides on r, we get:
+    \begin{equation*}
+        \frac{\partial V}{\partial r} = \frac{C}{r}
+    \end{equation*}
+    \begin{equation*}
+        V = \int \! \frac{C}{r} dr = C \ln r + D.
+    \end{equation*}
+    If we add the known values from the task, we get:
+    \begin{equation*}
+        V(b) = V_1 = 0 \Leftrightarrow C\ln b + D = 0
+    \end{equation*}
+    \begin{equation*}
+        \Rightarrow D = -C\ln b
+    \end{equation*}
+    and,
+    \begin{equation*}
+        V(a) = V_0 \Leftrightarrow V_0 = V_0 - V_1 = C\ln b
+    \end{equation*}
+    \begin{equation*}
+        \Rightarrow V_0 = C\ln\frac{1}{b}
+    \end{equation*}
+    \end{enumerate}
+    
+\end{enumerate}
+\end{document}
