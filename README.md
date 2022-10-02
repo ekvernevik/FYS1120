@@ -1,2 +1,2 @@
 # FYS1120
-Codes and assignments in electromagnetism
+Weekly tasks, codes and assignments in electromagnetism.
